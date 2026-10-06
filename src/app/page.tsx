@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import CustomerMenuEntryPage from "./customer-menu/page";
 
 export default function RootPage() {
-  redirect("/dashboard");
+  return <CustomerMenuEntryPage />;
 }

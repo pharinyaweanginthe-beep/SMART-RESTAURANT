@@ -18,6 +18,7 @@ export function AppLayout({ children }: AppLayoutProps) {
 
   // Exclude customer pages from internal dashboard sidebar layout
   const isCustomerPage =
+    pathname === "/" ||
     pathname.startsWith("/menu/") ||
     pathname.startsWith("/order/") ||
     pathname === "/customer-menu" ||

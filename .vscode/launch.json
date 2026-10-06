@@ -6,11 +6,12 @@
     "configurations": [
         
         {
-            "type": "chrome",
+            "type": "pwa-chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
+            "name": "Launch SMART RESTAURANT",
             "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}",
+            "preLaunchTask": "next-dev"
         }
     ]
 }

@@ -37,11 +37,6 @@ export default function LoginPage() {
     }
   };
 
-  const handleQuickLogin = (roleEmail: string) => {
-    setEmail(roleEmail);
-    setPassword("password123");
-  };
-
   return (
     <div className="min-h-screen bg-navy-950 flex items-center justify-center p-4 relative overflow-hidden font-sans">
       {/* Background Decor */}
@@ -85,7 +80,7 @@ export default function LoginPage() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="admin@smartrestaurant.com"
+                  placeholder="name@example.com"
                   className="w-full pl-10 pr-4 py-2.5 bg-navy-900/80 border border-slate-700/80 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-electric-500 focus:ring-1 focus:ring-electric-500 transition"
                 />
               </div>
@@ -125,43 +120,6 @@ export default function LoginPage() {
             <ArrowRight className="h-4 w-4" />
           </Link>
 
-          {/* Quick Demo Login Preset Buttons */}
-          <div className="pt-4 border-t border-white/10 space-y-2">
-            <p className="text-[11px] font-semibold text-gold-400 text-center uppercase tracking-wider">
-              ทดสอบระบบเร็ว (Demo Accounts)
-            </p>
-            <div className="grid grid-cols-2 gap-2 text-[10px]">
-              <button
-                type="button"
-                onClick={() => handleQuickLogin("admin@smartrestaurant.com")}
-                className="p-2 bg-navy-900 hover:bg-navy-800 rounded-lg text-slate-300 border border-slate-700 text-left transition"
-              >
-                <span className="font-bold text-electric-400">ADMIN:</span> admin@...
-              </button>
-              <button
-                type="button"
-                onClick={() => handleQuickLogin("manager@smartrestaurant.com")}
-                className="p-2 bg-navy-900 hover:bg-navy-800 rounded-lg text-slate-300 border border-slate-700 text-left transition"
-              >
-                <span className="font-bold text-emerald-400">MANAGER:</span> manager@...
-              </button>
-              <button
-                type="button"
-                onClick={() => handleQuickLogin("cashier@smartrestaurant.com")}
-                className="p-2 bg-navy-900 hover:bg-navy-800 rounded-lg text-slate-300 border border-slate-700 text-left transition"
-              >
-                <span className="font-bold text-amber-400">CASHIER:</span> cashier@...
-              </button>
-              <button
-                type="button"
-                onClick={() => handleQuickLogin("kitchen@smartrestaurant.com")}
-                className="p-2 bg-navy-900 hover:bg-navy-800 rounded-lg text-slate-300 border border-slate-700 text-left transition"
-              >
-                <span className="font-bold text-purple-400">KITCHEN:</span> kitchen@...
-              </button>
-            </div>
-            <p className="text-[10px] text-slate-500 text-center mt-1">รหัสผ่านเริ่มต้นสำหรับทุกบัญชี: password123</p>
-          </div>
         </div>
       </div>
     </div>

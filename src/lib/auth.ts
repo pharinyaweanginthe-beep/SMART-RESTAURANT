@@ -9,6 +9,12 @@ const SECRET_KEY = new TextEncoder().encode(
 
 export type UserRole = "ADMIN" | "MANAGER" | "CASHIER" | "STAFF" | "KITCHEN" | "CUSTOMER";
 
+const userRoles = ["ADMIN", "MANAGER", "CASHIER", "STAFF", "KITCHEN", "CUSTOMER"] as const;
+
+function isUserRole(role: string): role is UserRole {
+  return userRoles.some((userRole) => userRole === role);
+}
+
 export interface SessionUser {
   id: string;
   name: string;
@@ -39,7 +45,31 @@ export async function getSession(): Promise<SessionUser | null> {
   const cookieStore = cookies();
   const token = cookieStore.get("auth_token")?.value;
   if (!token) return null;
-  return await verifyToken(token);
+  const session = await verifyToken(token);
+  if (!session) return null;
+
+  const user = await prisma.user.findUnique({
+    where: { id: session.id },
+    select: {
+      id: true,
+      name: true,
+      email: true,
+      role: true,
+      status: true,
+      branchId: true,
+      restaurantId: true,
+    },
+  });
+  if (!user || user.status !== "ACTIVE" || !isUserRole(user.role)) return null;
+
+  return {
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    role: user.role,
+    branchId: user.branchId,
+    restaurantId: user.restaurantId,
+  };
 }
 
 export async function hashPassword(password: string): Promise<string> {
