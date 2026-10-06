@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: smart-restaurant
+    runtime: node
+    plan: starter
+    buildCommand: npm ci && npm run build
+    startCommand: npx prisma db push && npm run bootstrap:admin && npm start
+    disk:
+      name: restaurant-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: 20.19.0
+      - key: DATABASE_URL
+        value: file:/var/data/smart-restaurant.db
+      - key: AUTH_SECRET
+        generateValue: true
+      - key: INITIAL_ADMIN_EMAIL
+        value: owner@smartrestaurant.com
+      - key: INITIAL_ADMIN_NAME
+        value: Restaurant Owner
+      - key: INITIAL_ADMIN_PASSWORD
+        generateValue: true

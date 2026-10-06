@@ -136,4 +136,4 @@ npm test
 npm run build
 npm start
 ```
-ดูรายละเอียดเพิ่มเติมได้ที่ [docs/deployment.md](docs/deployment.md)
+ต้องการลิงก์สาธารณะถาวรให้ deploy ผ่าน Render Blueprint ที่ [render.yaml](./render.yaml) (ต้องใช้แพ็กเกจที่รองรับ persistent disk และมีค่าใช้จ่าย) ขั้นตอน deploy และการเข้าสู่ระบบครั้งแรกอยู่ที่ [docs/deployment.md](./docs/deployment.md)
