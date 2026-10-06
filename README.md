@@ -1,6 +1,8 @@
 # SMART RESTAURANT MANAGEMENT SYSTEM
 ### ระบบบริหารจัดการร้านอาหารอัจฉริยะ (Enterprise SaaS Web Application)
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/pharinyaweanginthe-beep/SMART-RESTAURANT)
+
 ระบบบริหารจัดการร้านอาหารแบบครบวงจร ใช้งานได้จริง เชื่อมต่อ Customer QR Ordering → POS Cashier → Kitchen KDS → Inventory BOM Recipe → Dashboard → Reports → Investment Financial Module
 
 ---

@@ -4,12 +4,11 @@
 
 The repository includes a Render Blueprint at `render.yaml`. It provisions a single Node.js web service and a persistent disk for the SQLite database. A paid Render web-service plan is required for the disk. Keep the service at one instance: the application uses SQLite and an in-memory realtime event hub.
 
-1. Push the repository to GitHub.
-2. Sign in to [Render](https://dashboard.render.com), choose **New > Blueprint**, and connect this repository's `main` branch.
-3. Review the service and persistent-disk charges, then choose **Deploy Blueprint**.
-4. Wait for the first deploy to finish. The startup command creates the database schema and a first active administrator. It does not seed demo data.
-5. Open the service's environment settings and reveal the generated `INITIAL_ADMIN_PASSWORD`. Sign in at `/login` using `owner@smartrestaurant.com` and that password. Do not share the password publicly.
-6. Add the restaurant's actual tables, menu, and staff accounts. The public root page is customer-facing; table ordering URLs are generated from each table's QR code.
+1. Click **Deploy to Render** in the root README and sign in to Render (or choose **New > Blueprint** in the [Render Dashboard](https://dashboard.render.com) and connect this repository's `main` branch).
+2. Review the service and persistent-disk charges, then approve **Deploy Blueprint**.
+3. Wait for the first deploy to finish. The startup command creates the database schema and a first active administrator. It does not seed demo data.
+4. Open the service's environment settings and reveal the generated `INITIAL_ADMIN_PASSWORD`. Sign in at `/login` using `owner@smartrestaurant.com` and that password. Do not share the password publicly.
+5. Add the restaurant's actual tables, menu, and staff accounts. The public root page is customer-facing; table ordering URLs are generated from each table's QR code.
 
 Render assigns the service a stable `onrender.com` URL. A custom domain can be attached later in the service settings. The URL becomes available after Render provisions the service; it cannot be created by a Git push alone.
 
